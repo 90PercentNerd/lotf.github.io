@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Maps</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400;700;900&display=swap');
+
+        body {
+            font-family: 'Source Code Pro', monospace;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f3e3f7;
+            color: #333;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #e5c7f0;
+            transition: background-color 0.3s;
+        }
+        .header-title {
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .map-container {
+            width: 48%;
+            text-align: left;
+            border: 2px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            background-color: #f8eefb;
+        }
+        .map-title {
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        iframe {
+            width: 100%;
+            height: 640px;
+            border: none;
+        }
+
+        /* DARK MODE AND TOGGLE STYLES */
+        @media only screen and (min-width: 0em) {
+            :root {
+                --dark: #082032;
+                --medium: #2c394b;
+                --accent: #334756;
+            }
+            body.dark-mode {
+                background-color: var(--dark);
+                color: #fff;
+            }
+            body.dark-mode .header {
+                background-color: var(--medium);
+            }
+            body.dark-mode .map-title {
+                color: #fff;
+            }
+            body.dark-mode .map-container {
+                border-color: #fff;
+                background-color: var(--medium);
+            }
+            body.dark-mode .light {
+                display: none;
+            }
+            body.dark-mode .dark {
+                display: block !important;
+            }
+            .dark {
+                display: none;
+            }
+        }
+
+        #dark-mode-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        #dark-mode-toggle:active {
+            transform: rotate(180deg);
+        }
+        .cs-moon, .cs-sun {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .cs-moon {
+            display: block;
+            opacity: 1;
+        }
+        .cs-sun {
+            display: none;
+            opacity: 0;
+            transform: rotate(-180deg);
+        }
+        body.dark-mode .cs-moon {
+            display: none;
+            opacity: 0;
+            transform: rotate(180deg);
+        }
+        body.dark-mode .cs-sun {
+            display: block;
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Essay Section */
+        .essay {
+            padding: 20px;
+            background-color: #e5c7f0;
+            transition: background-color 0.3s, color 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s, transform 1s;
+        }
+        body.dark-mode .essay {
+            background-color: var(--medium);
+            color: #fff;
+        }
+        .essay.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">Lord of the Flies and Lost Thematic Similarities</div>
+        <button id="dark-mode-toggle" aria-label="dark mode toggle">
+            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"></path></svg>
+            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="sun" width="24" height="24">
+        </button>
+    </div>
+    <div class="container">
+        <div class="map-container">
+            <div class="map-title">Lord of the Flies Map</div>
+            <iframe src="https://www.thinglink.com/view/scene/1849173248399376870" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+        </div>
+        <div class="map-container">
+            <div class="map-title">Lost Season 1</div>
+            <iframe src="https://www.thinglink.com/view/scene/1849878743342907878" webkitallowfullscreen mozallowfullscreen allowfullscreen scrolling="no"></iframe>
+        </div>
+    </div>
+    <div class="essay">
+        <h2>Analysis of Landmarks and Themes</h2>
+        <p>In both "Lord of the Flies" and "Lost", the theme of Chaos vs. Order is illustrated and emphisizes the balance between the two, thereby telling the audience that a lack of structure leads to chaos. Here are the key landmarks and how they relate to these themes:</p>
+            <li>In "Lord of the Flies", places like The Scar and The Signal Fire symbolize hope for rescue and to be connected back to civilization. Next we see order starting to be formed at the Beach Camp while Ralph starts assigning tasks. Castle Rock sybolizes the start of the decent into savagery. That decent leads to the ultimate savagery and chaos which can be seen at Piggy's Death Site and the island fire that follows. As the group spilts up more chaos and savagery starts to ensue.
+            <p>
+            <li>Similarly, in "Lost," The Crash Site and Beach Camp represent the survivors' initial attempts to create order and maintain hope for rescue. The Jungle symbolizes the unpredictable threats that challenge their efforts to maintain order. The division between those staying at the Beach Camp and those moving to The Caves highlights the tension between survival and maintaining societal norms. The Hatch becomes a focal point of mystery and conflict, driving paranoia and disrupting the fragile order. In this case, the group is more willing to stick together, but its decisions like deciding to move to the caves or stay on the beach that we start to see a hint of chaos when you accounting for things like revenge.
+        <p>Both stories explore how environments influence human behavior, revealing the thin veneer of civilization and the underlying primal instincts that emerge in the face of survival. 
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Intersection Observer for fade-in effect
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.essay').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    <script async src="//cdn.thinglink.me/jse/responsive.js"></script>
+</body>
+</html>
